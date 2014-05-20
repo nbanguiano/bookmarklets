@@ -1,6 +1,5 @@
 javascript:(function(){
-// As learned in the "Enhancing the DOM" course at Lynda.com
- 
+
 	var o = document.createElement('div'); 
 	o.id = 'signature'; 
 	o.style.position = 'absolute'; 
@@ -9,19 +8,30 @@ javascript:(function(){
 	o.style.height = window.innerHeight + 'px'; 
 	o.style.top = window.pageYOffset + 'px'; 
 	o.style.left = window.pageXOffset + 'px'; 
-	document.body.appendChild(o); 
+	document.body.appendChild(o);
 
 	var t = document.createElement('textarea'); 
-	t.rows = '7'; 
-	t.cols = '100'; 
-	t.value = __ADD_ANYTHING_YOU_WANT_TO_SHOW_HERE__; 
-	t.style.display = 'block'; 
+	t.rows = '10'; t.cols = '80'; t.style.display = 'block';
 	t.style.position = 'absolute'; 
-	t.style.marginLeft = '20%'; 
-	t.style.marginTop = '100px'; 
+	t.style.marginLeft = '25%';
+	t.style.marginTop = '10px'; 
+	
+	var text = 'WHATEVER_YOU_WANT_TO_DISPLAY'
+	t.value = text;
 
-	o.appendChild(t); 
-	o.addEventListener('click', function(){ 
+	var h3 = document.createElement('H3');
+	h3.style.marginLeft = '25%';
+	h3.style.marginTop = '100px';
+	h3.style.zIndex = '1';
+	h3.style.color = 'white';
+	h3.style.cursor = 'pointer';
+	var c = document.createTextNode('Close X');
+	
+	h3.appendChild(c);
+	o.appendChild(h3);
+	o.appendChild(t);
+
+	h3.addEventListener('click', function(){ 
 		if(o){ 
 			window.removeEventListener('resize', window, false); 
 			window.removeEventListener('scroll', window, false); 
